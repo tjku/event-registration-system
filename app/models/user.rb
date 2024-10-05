@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :created_events, class_name: "Event", inverse_of: :creator
+
   enum :role, { participant: 0, organizer: 1 }
 end

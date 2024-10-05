@@ -158,6 +158,8 @@ GEM
       stringio
     puma (6.4.3)
       nio4r (~> 2.0)
+    pundit (2.4.0)
+      activesupport (>= 3.0.0)
     racc (1.8.1)
     rack (3.1.7)
     rack-session (2.0.0)
@@ -253,6 +255,8 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     securerandom (0.3.1)
+    shoulda-matchers (6.4.0)
+      activesupport (>= 5.2.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -319,9 +323,11 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   puma (>= 5.0)
+  pundit (~> 2.4)
   rails (~> 7.2.1)
   rspec-rails
   rubocop-rails-omakase
+  shoulda-matchers (~> 6.4)
   sprockets-rails
   sqlite3 (>= 1.4)
   stimulus-rails

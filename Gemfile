@@ -44,7 +44,9 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'rspec-rails'
+  gem "rspec-rails"
+
+  gem "shoulda-matchers", "~> 6.4"
 end
 
 group :development do
@@ -54,3 +56,5 @@ end
 
 
 gem "devise", "~> 4.9"
+
+gem "pundit", "~> 2.4"

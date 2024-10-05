@@ -1,0 +1,13 @@
+<% content_for :title, "New event" %>
+
+<h1>New event</h1>
+
+<%= render "form", event: @event %>
+
+<br>
+
+<div>
+  <% if policy(Event).index? %>
+    <%= link_to "Back to events", events_path %>
+  <% end %>
+</div>

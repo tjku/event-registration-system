@@ -1,0 +1,15 @@
+<%= render @event %>
+
+<div>
+  <% if policy(@event).edit? %>
+    <%= link_to "Edit this event", edit_event_path(@event) %>
+  <% end %>
+
+  <% if policy(Event).index? %>
+    <%= link_to "Back to events", events_path %>
+  <% end %>
+
+  <% if policy(@event).destroy? %>
+    <%= button_to "Destroy this event", @event, method: :delete %>
+  <% end %>
+</div>
