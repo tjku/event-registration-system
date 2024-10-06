@@ -1,7 +1,11 @@
 class EventPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     def resolve
-      user.created_events
+      if user.organizer?
+        user.created_events
+      else
+        user.events
+      end
     end
   end
 

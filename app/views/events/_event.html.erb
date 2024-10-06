@@ -6,6 +6,18 @@
 
   <p>
     <strong>Creator:</strong>
-    <%= event.creator.email %>
+    <%= render partial: 'users/user', object: event.creator %>
   </p>
+
+  <% if policy(%i[events register]).create? %>
+    <% if current_user.participations.find_by(event: event).blank? %>
+      <p>
+        <%= button_to 'Register', event_register_path(event_id: event.id, method: :post) %>
+      </p>
+    <% else %>
+      <p class="notice">
+        Registered!
+      </p>
+    <% end %>
+  <% end %>
 </div>

@@ -1,15 +1,35 @@
-<%= render @event %>
+<div class="event">
+  <%= render @event %>
+
+  <div>
+    <strong>Participants:</strong>
+
+    <% if @event.participations.empty? %>
+      <p>No participants.</p>
+    <% else %>
+      <ul>
+        <% @event.participations.map do |participation| %>
+          <li>
+            <%= render participation.user %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div style="border-top: 1px dashed #000; padding-top: .5rem">
+    <% if policy(@event).edit? %>
+      <%= link_to "Edit this event", edit_event_path(@event) %>
+    <% end %>
+
+    <% if policy(@event).destroy? %>
+      <%= button_to "Destroy this event", @event, method: :delete %>
+    <% end %>
+  </div>
+</div>
 
 <div>
-  <% if policy(@event).edit? %>
-    <%= link_to "Edit this event", edit_event_path(@event) %>
-  <% end %>
-
   <% if policy(Event).index? %>
     <%= link_to "Back to events", events_path %>
-  <% end %>
-
-  <% if policy(@event).destroy? %>
-    <%= button_to "Destroy this event", @event, method: :delete %>
   <% end %>
 </div>

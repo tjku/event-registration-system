@@ -1,9 +1,9 @@
-<% content_for :title, "My Events" %>
+<% content_for :title, "All Events" %>
 
-<h1>My Events</h1>
+<h1>All Events</h1>
 
-<% if policy(%i[events all]).index? %>
-  <%= link_to "All Events", events_all_index_path %>
+<% if policy(Event).index? %>
+  <%= link_to "My Events", events_path %>
 <% end %>
 
 <div id="events">
@@ -13,7 +13,7 @@
 
   <% @events.each do |event| %>
     <div class="event">
-      <%= render event %>
+      <%= render partial: 'events/event', object: event %>
 
       <% if policy(event).show? %>
         <p>
@@ -23,7 +23,3 @@
     </div>
   <% end %>
 </div>
-
-<% if policy(Event).new? %>
-  <%= link_to "New event", new_event_path %>
-<% end %>
