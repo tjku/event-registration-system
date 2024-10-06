@@ -9,7 +9,7 @@ module Events
 
       return if participation.persisted?
 
-      participation.save
+      participation.save if event.available_seats? # FIXME: lock or transaction
     end
 
   private

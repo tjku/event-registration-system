@@ -6,4 +6,14 @@ class Event < ApplicationRecord
   has_many :users, through: :participations
 
   validates :title, presence: true
+
+  def available_seats
+    return if limit.nil?
+
+    limit - participations.count
+  end
+
+  def available_seats?
+    limit.nil? || (limit - participations.count) > 0
+  end
 end

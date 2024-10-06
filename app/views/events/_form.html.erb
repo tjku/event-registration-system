@@ -17,6 +17,11 @@
   </div>
 
   <div>
+    <%= form.label :limit, style: "display: block" %>
+    <%= form.number_field :limit %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

@@ -9,6 +9,15 @@
     <%= render partial: 'users/user', object: event.creator %>
   </p>
 
+  <p>
+    <strong>Limit:</strong>
+    <% if event.limit.nil? %>
+      No Limit
+    <% else %>
+      <%= event.limit %> (available: <%= event.available_seats %>)
+    <% end %>
+  </p>
+
   <% if policy(%i[events register]).create? %>
     <% if current_user.participations.find_by(event: event).blank? %>
       <p>
